@@ -1,17 +1,25 @@
 const text = "Software Developer | Machine Learning Enthusiast";
 
-let i = 0;
+const typingElement = document.getElementById("typing-text");
+
+let index = 0;
 
 function typeWriter() {
 
-    if(i < text.length){
+    if(index < text.length){
 
-        document.getElementById("typing-text").innerHTML += text.charAt(i);
+        typingElement.innerHTML += text.charAt(index);
 
-        i++;
+        index++;
 
         setTimeout(typeWriter, 70);
     }
 }
 
-typeWriter();
+window.onload = () => {
+
+    typingElement.innerHTML = "";
+
+    typeWriter();
+};
+
